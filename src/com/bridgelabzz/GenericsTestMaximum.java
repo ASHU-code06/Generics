@@ -3,8 +3,8 @@ package com.bridgelabzz;
 import java.util.Scanner;
 
 public class GenericsTestMaximum {
-    int max;
-    public int maxnum(int a, int b, int c){
+    float max;
+    public float maxnum(float a, float b, float c){
         if (a>b&a>c){
            max=a;
         }
@@ -20,12 +20,12 @@ public class GenericsTestMaximum {
         GenericsTestMaximum greatestNumberCase1=new GenericsTestMaximum();
         Scanner userinput = new Scanner(System.in);
         System.out.println("Enter a number");
-        int num1 = userinput.nextInt();
+        float num1 = userinput.nextFloat();
         System.out.println("Enter a number");
-        int num2 = userinput.nextInt();
+        float num2 = userinput.nextFloat();
         System.out.println("Enter a number");
-        int num3 = userinput.nextInt();
-        int result =greatestNumberCase1.maxnum(num1,num2,num3);
+        float num3 = userinput.nextFloat();
+        float result =greatestNumberCase1.maxnum(num1,num2,num3);
         System.out.println("The greates number is "+result);
     }
 }
