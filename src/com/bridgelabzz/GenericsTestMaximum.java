@@ -3,29 +3,26 @@ package com.bridgelabzz;
 import java.util.Scanner;
 
 public class GenericsTestMaximum {
-    float max;
-    public float maxnum(float a, float b, float c){
-        if (a>b&a>c){
-           max=a;
-        }
-        if (b>a&b>c){
+    String max;
+    public String maxnum(String a, String b, String c){
+        max=a;
+        if (max.compareTo(b)<0){
             max=b;
-        }
-        if (c>a&c>b){
+        }if (max.compareTo(c)<0){
             max=c;
         }
         return  max;
     }
     public static void main(String[] args){
-        GenericsTestMaximum greatestNumberCase1=new GenericsTestMaximum();
+        GenericsTestMaximum greatestStringCase1=new GenericsTestMaximum();
         Scanner userinput = new Scanner(System.in);
-        System.out.println("Enter a number");
-        float num1 = userinput.nextFloat();
-        System.out.println("Enter a number");
-        float num2 = userinput.nextFloat();
-        System.out.println("Enter a number");
-        float num3 = userinput.nextFloat();
-        float result =greatestNumberCase1.maxnum(num1,num2,num3);
-        System.out.println("The greates number is "+result);
+        System.out.println("Enter a String");
+        String num1 = userinput.nextLine();
+        System.out.println("Enter a String");
+        String num2 = userinput.nextLine();
+        System.out.println("Enter a String");
+        String num3 = userinput.nextLine();
+        String result =greatestStringCase1.maxnum(num1,num2,num3);
+        System.out.println("The greatest String is "+result);
     }
 }
