@@ -3,29 +3,60 @@ package com.bridgelabzz;
 import java.util.Scanner;
 
 public class GenericsTestMaximum {
-    int max;
-    public int maxnum(int a, int b, int c){
-        if (a>b&a>c){
-           max=a;
-        }
-        if (b>a&b>c){
-            max=b;
-        }
-        if (c>a&c>b){
-            max=c;
-        }
-        return  max;
-    }
     public static void main(String[] args){
-        GenericsTestMaximum greatestNumberCase1=new GenericsTestMaximum();
-        Scanner userinput = new Scanner(System.in);
-        System.out.println("Enter a number");
-        int num1 = userinput.nextInt();
-        System.out.println("Enter a number");
-        int num2 = userinput.nextInt();
-        System.out.println("Enter a number");
-        int num3 = userinput.nextInt();
-        int result =greatestNumberCase1.maxnum(num1,num2,num3);
-        System.out.println("The greates number is "+result);
+        GenericsTestMaximum greatestNumber = new GenericsTestMaximum();
+
+        System.out.println("Enter size of array");
+        int options = new Scanner(System.in).nextInt();
+
+        greatestNumber.passinteger(options);
+        greatestNumber.passfloat(options);
+        greatestNumber.passString(options);
+
+    }
+     void passinteger(int size ){
+         Scanner userinput = new Scanner(System.in);
+         Integer nums[] = new Integer[size];
+         System.out.println("Enter elements of integer array");
+         for (int k = 0 ; k <  size ; k++){
+             nums[k] = userinput.nextInt();
+         }
+         GenericsTestMaximum greatestNumber = new GenericsTestMaximum();
+         greatestNumber.maxvalue(nums);
+     }
+     void passfloat(int size){
+         Scanner userinput = new Scanner(System.in);
+         Float numsf[] = new Float[size];
+         System.out.println("Enter elements of float array");
+         for (int k = 0 ; k <  size; k++){
+             numsf[k] = userinput.nextFloat();
+         }
+         GenericsTestMaximum greatestNumber = new GenericsTestMaximum();
+         greatestNumber.maxvalue(numsf);
+     }
+     void passString(int size){
+         Scanner userinput = new Scanner(System.in);
+         String numsS[] = new String[size];
+         System.out.println("Enter elements of String array");
+         for (int k = 0 ; k <  size; k++){
+             numsS[k] = userinput.nextLine();
+         }
+         GenericsTestMaximum greatestNumber = new GenericsTestMaximum();
+         greatestNumber.maxvalue(numsS);
+
+     }
+    public <T extends Comparable<T> >void maxvalue(T array[]){
+        for (int i=0;i<array.length;i++){
+            for (int j=i+1;j< array.length;j++){
+                if (array[i].compareTo(array[j])<0){
+                    T store;
+                    store=array[i];
+                    array[i]=array[j];
+                    array[j]=store;
+                }
+            }
+        }
+        System.out.println("Greatest element is "+array[0]);
+
     }
 }
